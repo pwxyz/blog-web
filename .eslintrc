@@ -1,0 +1,4 @@
+{
+  "extends": ["eslint-config-umi", "eslint-config-alloy/typescript-react"],
+  "parser": "typescript-eslint-parser"
+}
