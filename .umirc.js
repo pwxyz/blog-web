@@ -7,7 +7,7 @@ export default {
       antd: true,
       dva: true,
       dynamicImport: true,
-      title: 'umi',
+      title: '个人博客',
       dll: false,
       routes: {
         exclude: [],

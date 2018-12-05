@@ -6,6 +6,16 @@ export default {
     title: '标题',
     titleArr: []
   },
+  subscriptions: {
+    history({ dispatch, history }) {
+      const path = history.location.pathname;
+      //  根路径跳转到home下
+      if (path === '/') {
+        history.push('/home');
+      }
+
+    }
+  },
   reducers: {
     setList(state, action) {
       return {
@@ -17,11 +27,13 @@ export default {
   effects: {
     * getArticleList(action, { call, put }) {
       const res = yield call(get, 'http://localhost:3400/blog', { name: 'xx' });
-      console.log(res);
-      yield put({
-        type: 'setList',
-        payload: res
-      });
+      if (!res.err) {
+        yield put({
+          type: 'setList',
+          payload: res
+        });
+      }
+
     }
   }
 };

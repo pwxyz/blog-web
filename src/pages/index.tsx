@@ -8,7 +8,7 @@ interface State{
 }
 
 interface Props{
-
+  get: () => void;
 }
 
 const mapStateToProps = state => {
@@ -36,15 +36,12 @@ class IndexPage extends React.Component<Props, State> {
     };
   }
   componentDidMount() {
-    this.props.get('x');
+    this.props.get();
   }
 
   render() {
-    console.log(this.props, 'xxx');
-    const { name } = this.state;
     return (
       <div>
-        {name}
       </div>
     );
   }
